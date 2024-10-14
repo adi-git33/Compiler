@@ -1,0 +1,34 @@
+collection classCol, highGradesStudents, lowGradeStudent, avgGradeStudents;
+set grades, gradesHigh;
+int grd;
+str student;
+classCol = {"Rafi_Suisa", "Tamar_Evan", "Avi_Maoz", "Eli_Kamer", "Shlomit_Raz", "Haim_Mizrachi", "Moshe_Samocha", "Tali_Raban", "Sharon_Tal", "Gal_Elbaz"};
+gradesHigh = [];
+highGradesStudents = {};
+
+for (student:classCol)
+{
+    output "Grades for: " student;
+    input ">" grd;
+    if ( grd >= 90 )
+    {
+        gradesHigh = gradesHigh + grd;
+        highGradesStudents = highGradesStudents + student;
+    }
+}
+
+
+if ( gradesHigh )
+{
+    output "Number of top grades: " |gradesHigh|;
+    output "Top grades are: " gradesHigh;
+    output "High grade students are: " highGradesStudents;
+}
+
+input "Low Grade Students >" lowGradeStudent;
+
+for (student : lowGradeStudent)
+    output "Get better next time: " student;
+
+avgGradeStudents = classCol - highGradesStudents - lowGradeStudent;
+output "Students with good grades: " avgGradeStudents;
